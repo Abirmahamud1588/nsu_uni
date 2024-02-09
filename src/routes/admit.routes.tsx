@@ -1,13 +1,12 @@
-import { NavLink } from "react-router-dom";
+import Admindashboard from "../pages/admin/Admindashboard";
 import Createadmin from "../pages/admin/Createadmin";
 import Createfaculty from "../pages/admin/Createfaculty";
 import Createstudent from "../pages/admin/Createstudent";
-import { ReactNode } from "react";
-const adminPath2 = [
+export const adminPath = [
   {
     name: "Dashboard",
     path: "dashboard",
-    element: <Createstudent></Createstudent>,
+    element: <Admindashboard></Admindashboard>,
   },
   {
     name: "User Management",
@@ -31,54 +30,48 @@ const adminPath2 = [
   },
 ];
 
-type TSidebar = {
-  key: string;
-  label: ReactNode;
-  children?: TSidebar[];
-};
+// export const adminsidebar = adminPath2.reduce((acc: TSidebar[], item) => {
+//   if (item.path && item.name) {
+//     acc.push({
+//       key: item.name,
+//       label: <NavLink to={`/admin/${item.path}`}>{item.name}</NavLink>,
+//     });
+//   }
+//   if (item.children) {
+//     acc.push({
+//       key: item.name,
+//       label: item.name,
+//       children: item.children.map((child) => ({
+//         key: child.name,
+//         label: <NavLink to={`/admin/${child.path}`}>{child.name}</NavLink>,
+//       })),
+//     });
+//   }
+//   return acc;
+// }, []);
 
-export const adminsidebar = adminPath2.reduce((acc: TSidebar[], item) => {
-  if (item.path && item.name) {
-    acc.push({
-      key: item.name,
-      label: <NavLink to={`/admin/${item.path}`}>{item.name}</NavLink>,
-    });
-  }
-  if (item.children) {
-    acc.push({
-      key: item.name,
-      label: item.name,
-      children: item.children.map((child) => ({
-        key: child.name,
-        label: <NavLink to={`/admin/${child.path}`}>{child.name}</NavLink>,
-      })),
-    });
-  }
-  return acc;
-}, []);
-
-type TRoute = {
-  path: string;
-  element: ReactNode;
-};
-export const admiRoutes = adminPath2.reduce((acc: TRoute[], item) => {
-  if (item.path && item.element) {
-    acc.push({
-      path: item.path,
-      element: item.element,
-    });
-  }
-  if (item.children) {
-    item.children.forEach((child) => {
-      // Corrected 'foreach' to 'forEach'
-      acc.push({
-        path: child.path,
-        element: child.element,
-      });
-    });
-  }
-  return acc;
-}, []);
+// type TRoute = {
+//   path: string;
+//   element: ReactNode;
+// };
+// export const admiRoutes = adminPath2.reduce((acc: TRoute[], item) => {
+//   if (item.path && item.element) {
+//     acc.push({
+//       path: item.path,
+//       element: item.element,
+//     });
+//   }
+//   if (item.children) {
+//     item.children.forEach((child) => {
+//       // Corrected 'foreach' to 'forEach'
+//       acc.push({
+//         path: child.path,
+//         element: child.element,
+//       });
+//     });
+//   }
+//   return acc;
+// }, []);
 
 // export const adminPath = [
 //   {

@@ -1,33 +1,44 @@
 import { Layout, Menu, MenuProps } from "antd";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import { adminsidebar } from "../../routes/admit.routes";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const items: MenuProps["items"] = [
-  {
-    key: "1",
-    label: "user profile",
-  },
+// const items: MenuProps["items"] = [
+//   {
+//     key: "Dashboard",
+//     label: <NavLink to="/admin"> Dashboard</NavLink>,
+//   },
 
-  {
-    key: "2",
-    label: "user profile",
-  },
-  {
-    key: "3",
-    label: "user profile",
-  },
-  {
-    key: "4",
-    label: "user profile",
-    children: [
-      {
-        key: "11",
-        label: "user profiless",
-      },
-    ],
-  },
-];
+//   {
+//     key: "userManagement",
+//     label: "user Management",
+//     children: [
+//       {
+//         key: "create admin",
+//         label: <NavLink to="/admin/create-admin"> Create Admin</NavLink>,
+//       },
+//       {
+//         key: "create student",
+//         label: <NavLink to="/admin/create-student"> Create Stduent</NavLink>,
+//       },
+//       {
+//         key: "create faculty",
+//         label: <NavLink to="/admin/create-faculty"> Create faculty</NavLink>,
+//       },
+//     ],
+//   },
+//   {
+//     key: "CourseManagement",
+//     label: "Course Management",
+//     children: [
+//       {
+//         key: "create course",
+//         label: <NavLink to="/admin/create-admin"> Create Course</NavLink>,
+//       },
+//     ],
+//   },
+// ];
 
 const Mainlayout = () => {
   return (
@@ -57,7 +68,7 @@ const Mainlayout = () => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["4"]}
-          items={items}
+          items={adminsidebar}
         />
       </Sider>
       <Layout>
